@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 
 function Input({ todo, setTodo }) {
-    const defaultFormValues = { id: uuidv4(), task: "", defaultChecked: false };
+    const defaultFormValues = { id: uuidv4(), task: "", done: false };
 
     const [form, setForm] = useState(defaultFormValues);
 
@@ -23,8 +23,6 @@ function Input({ todo, setTodo }) {
         }
         setForm(defaultFormValues)
         setTodo([...todo, form])
-     
-        console.log({todo});
     }
    
     return (

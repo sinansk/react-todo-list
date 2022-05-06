@@ -3,7 +3,7 @@ import React from "react";
 import Todo from "./Todo";
 import { useState } from "react";
 
-function List({todo, removeTodo }) {
+function List({todo, removeTodo, setTodo}) {
 
     return (
         <div className="list">  
@@ -14,7 +14,9 @@ function List({todo, removeTodo }) {
                      i={i} 
                      key={i} 
                      removeTodo={removeTodo}
-                     name={item.id}   
+                     name={item.id}
+                     setTodo={setTodo}
+                     todo={todo}   
                      />
                 ))}
             </ul>

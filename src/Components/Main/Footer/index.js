@@ -1,9 +1,17 @@
 import React from "react";
 import "./styles.css";
 
-function Status() {
+function Footer( { todo } ) {
+
+
+    // const complated = todo.filter(item => {
+    //     if (item.done === true) {
+        
+    //     }
+    // })
+
     return (
-        <div className="status">
+        <div className="footer">
             <p> Items Left</p>
             <ul>
                 <li><button>All</button></li>
@@ -15,4 +23,4 @@ function Status() {
     )
 }
 
-export default Status;
+export default Footer;
