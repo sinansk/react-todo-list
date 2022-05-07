@@ -1,24 +1,40 @@
 import React from "react";
 import "./styles.css";
+import { useState } from "react";
+import { getAllByAltText } from "@testing-library/react";
 
-function Footer( { todo } ) {
+function Footer( {item, todo, setTodo, setFiltered, complatedList, activeList, allList } ) {
+    
+    function clearAll(e) {
+        setTodo([]);
+    }
 
-
-    // const complated = todo.filter(item => {
-    //     if (item.done === true) {
-        
-    //     }
-    // })
+    function handleFilter(e) {
+        if (e.target.className === "Complated") {
+            setFiltered(complatedList)
+        } else if (e.target.className === "Active") {
+            setFiltered(activeList)
+        } else if (e.target.className === "All") {
+            setFiltered(allList)
+        }
+        return
+    }
 
     return (
-        <div className="footer">
-            <p> Items Left</p>
+        <div className="footer" onClick={handleFilter}>
+            <p>Items Left {activeList.length}</p>
             <ul>
-                <li><button>All</button></li>
-                <li><button>Active</button></li>
-                <li><button>Complated</button></li>
+                <li>
+                    <button className="All">All</button>
+                </li>
+                <li>
+                    <button className="Active">Active</button>
+                </li>
+                <li>
+                    <button className="Complated">Complated</button>
+                </li>
             </ul>
-            <button>Clear All</button>
+            <button onClick={clearAll}>Clear All</button>
         </div>
     )
 }

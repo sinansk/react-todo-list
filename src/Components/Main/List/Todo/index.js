@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import Input from "../../Input";
 import "./styles.css";
 
-function Todo({item, removeTodo, todo, setTodo, i }) {
+function Todo({todo, setTodo, item, removeTodo, filteredList, setFiltered }) {
 
     //  const newTodo = { id: "", task:todo.task, isComplated: false};
 
     function toggleDone(e) {
         console.log(e.target.id)
-        let updatedTodo = todo.map(item => {
+        let updatedTodo = filteredList.map(item => {
             if (e.target.id === item.id) {
                 return {...item, done: !item.done}
             }
@@ -16,7 +16,6 @@ function Todo({item, removeTodo, todo, setTodo, i }) {
         });
         setTodo(updatedTodo)
     }
-
 
     return (  
     <li className="todo">

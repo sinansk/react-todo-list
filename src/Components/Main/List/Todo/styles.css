@@ -21,7 +21,7 @@ body {
 .todo > label {
   width: 100%;
   height: 100%;
-  padding: 10px 0;
+  padding: 10px;
 }
 .toggle {
   flex: 1;
@@ -34,18 +34,18 @@ body {
 }
 
 .toggle + label {
-  margin-left: 50px;
+  margin-left: 20px;
 }
 
 .toggle + label:before {
   position: absolute;
-  left: 2px;
+  left: 5px;
   content: "⬜️";
-  margin-right: 10px;
+  margin-right: 5px;
 }
 
 .todo input:checked + label:before {
-  content: "👌";
+  content: "✅";
 }
 
 .todo input:checked + label {

@@ -3,25 +3,28 @@ import React from "react";
 import Todo from "./Todo";
 import { useState } from "react";
 
-function List({todo, removeTodo, setTodo}) {
+function List({ todo, removeTodo, setTodo, filteredList, setFiltered }) {
 
-    return (
-        <div className="list">  
-            <ul >
-                {todo.map((item, i) => (
-                    <Todo
-                     item={item} 
-                     i={i} 
-                     key={i} 
-                     removeTodo={removeTodo}
-                     name={item.id}
-                     setTodo={setTodo}
-                     todo={todo}   
-                     />
-                ))}
-            </ul>
-        </div>
-    )
+  return (
+
+    <div className="list">
+      <ul>
+        {filteredList.map((item, i) => (
+          <Todo
+            item={item}
+            i={i}
+            key={i}
+            removeTodo={removeTodo}
+            name={item.id}
+            setTodo={setTodo}
+            todo={todo}
+            filteredList={filteredList}
+            setFiltered={setFiltered}
+          />
+        ))}
+      </ul>
+    </div>
+  );
 }
 
 export default List;

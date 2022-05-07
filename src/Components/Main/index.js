@@ -13,11 +13,6 @@ function Main() {
 
     const storageTodo = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || [];
 
-    if (!storageTodo) {
-
-    }
-
-
     useEffect((storageTodo) => {
         function checkLocalStorage() {
        
@@ -33,7 +28,7 @@ function Main() {
     }, [])  
 
     const [todo, setTodo] = useState(storageTodo);
-
+   
     useEffect(() => {
         if (todo)
         localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(todo));
@@ -43,17 +38,27 @@ function Main() {
         console.log(todo);
     },[todo])
 
+    const [filteredList, setFiltered] = useState(todo);
+    const complatedList = todo.filter(item => item.done === true)
+    const activeList = todo.filter(item => item.done === false)
+    const allList = todo  
+
+    useEffect(() => {
+        setFiltered(todo)
+    },[todo])
+
     function removeTodo(e) {
         console.log(e.target.name)
         const id = e.target.getAttribute("name")
         setTodo(todo.filter(item => item.id !== id));
+       
     }
     
     return (
         <div className={"main " + (todo.length !== 0 ? "active" : null)}>
             <Input todo={todo} setTodo={setTodo}/>
-            <List todo={todo} setTodo={setTodo} removeTodo={removeTodo}/>   
-            <Footer todo={todo} storageTodo={storageTodo} />
+            <List todo={todo} setTodo={setTodo} removeTodo={removeTodo} filteredList={filteredList}/>   
+            <Footer todo={todo} setTodo={setTodo} setFiltered={setFiltered} complatedList={complatedList} activeList={activeList} allList={allList}/>
         </div>
     )
 }

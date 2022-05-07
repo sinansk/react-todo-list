@@ -9,9 +9,15 @@ body {
   height: 100;
 }
 
+.main::-webkit-scrollbar {
+  display: none;
+}
+
 .main {
   width: 35rem;
   height: var(--main-height);
+  max-height: 80vh;
+  overflow-y: scroll;
   background: rgba(255, 255, 255, 0.31);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
