@@ -2,13 +2,16 @@ import React from "react";
 import "./styles.css";
 import Input from "./Input";
 import List from "./List";
-import Todo from "./List/Todo";
 import Footer from "./Footer"
 import { useState, useEffect } from "react";
 
 const LOCAL_STORAGE_KEY = "to-do-list-todos";
 
 function Main() {
+
+    useEffect(() => {
+        document.title = "What Will You Do ?";
+      }, []);
 
     const storageTodo = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || [];
 
