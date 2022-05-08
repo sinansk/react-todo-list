@@ -9,10 +9,6 @@ const LOCAL_STORAGE_KEY = "to-do-list-todos";
 
 function Main() {
 
-    useEffect(() => {
-        document.title = "What Will You Do ?";
-      }, []);
-
     const storageTodo = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || [];
 
     useEffect((storageTodo) => {
