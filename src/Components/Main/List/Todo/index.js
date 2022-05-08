@@ -2,9 +2,13 @@ import React, { useEffect, useState } from "react";
 import Input from "../../Input";
 import "./styles.css";
 
-function Todo({todo, setTodo, item, removeTodo, filteredList, setFiltered }) {
+function Todo({todo, setTodo, item, filteredList }) {
 
-    //  const newTodo = { id: "", task:todo.task, isComplated: false};
+    function removeTodo(e) {
+        console.log(e.target.name)
+        const id = e.target.getAttribute("name")
+        setTodo(todo.filter(item => item.id !== id));
+    }
 
     function toggleDone(e) {
         console.log(e.target.id)

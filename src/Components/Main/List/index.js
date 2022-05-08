@@ -1,7 +1,7 @@
 import React from "react";
 // import "./styles.css";
 import Todo from "./Todo";
-import { useState } from "react";
+
 
 function List({ todo, removeTodo, setTodo, filteredList, setFiltered }) {
 

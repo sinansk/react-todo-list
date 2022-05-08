@@ -4,10 +4,9 @@ import Todo from "../List/Todo";
 import List from "../List";
 import { v4 as uuidv4 } from 'uuid';
 
-
 function Input({ todo, setTodo }) {
-    const defaultFormValues = { id: uuidv4(), task: "", done: false };
 
+    const defaultFormValues = { id: uuidv4(), task: "", done: false };
     const [form, setForm] = useState(defaultFormValues);
 
     const onChangeInput = (e) => {
@@ -16,8 +15,7 @@ function Input({ todo, setTodo }) {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        
-        // console.log(e.target);
+  
         if (form.task === "" ) {
             return false;
         }
